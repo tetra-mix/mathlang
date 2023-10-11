@@ -16,6 +16,8 @@ function clickBtn() {
       },
       error: function(xhr, status, error) {
         console.log("error")
+        document.getElementById("output").innerHTML = error;
+        load.addClass("display-none");
       }
     })
     .done(function(data) {
