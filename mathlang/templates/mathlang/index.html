@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <title>単語電卓</title>
+
+</head>
+
+<body>
+    <div id="load" class="load-container display-none l">
+        <div class="loader l"></div>
+        <h3>Now Loading...</h3>
+    </div>
+    <h1>単語電卓</h1>
+    <div class="display" id="d2">
+        <div class="description">
+            <h3>説明</h3>
+            <p>言葉の足し算、引き算ができます。</p>
+            <p>以下のような計算を入力し、送信を押してください。</p>
+            <p>例：'人生'-'金'</p>
+            <h3>注意</h3>
+            <ul>
+                <li>単語は''でくくる。</li>
+                <li>記号は+か-のどちらかを入力する。</li>
+                <li>辞書にのっているような単語でお願いします。(計算できません)</li>
+            </ul>
+            <h3>技術面</h3>
+            <ul>
+                <li>使用言語   python</li>
+                <li>ライブラリ django, word2vec</li>
+                <li>言語モデル chive-1.2-mc90</li>
+            </ul>
+        </div>
+        <div class="object">
+            <input class="word" id="input_form" name="first" type="text" value="'人生'-'金'">
+            <span class="equle">=</span>
+            <span class="result" id="output">?</span>
+        </div>
+        <div>
+            <input value="言葉を追加" type="button" class="button-word" onclick="addword()">
+            <input value="記号-を追加" type="button" class="button-plus" onclick="addplus()">
+            <input value="記号+を追加" type="button" class="button-minus" onclick="addminus()">
+        </div>
+    </div>
+    <div class="display btn" id="d4">
+        <input type="submit" class="button" value="送信する" onclick="clickBtn()">
+    </div>
+</body>
+
+</html>
